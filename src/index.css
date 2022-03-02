@@ -20,6 +20,7 @@ body {
   --black: #262022;
   --text-color: #fff;
   --font-size: 1.1rem;
+  overflow-x: hidden;
   /* --primary-color: #92d390; */
   /* --primary-color: #312349; */
 }
@@ -52,7 +53,6 @@ p {
 .carrot-hunt-container {
   width: 99vw;
   margin-bottom: 100px;
-  /* background: #000; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,7 +60,6 @@ p {
 
 .w-100 {
   width: 50%;
-  /* margin: auto */
 }
 
 header {
@@ -114,10 +113,51 @@ header nav a:hover {
 }
 
 marquee {
-  background: #232b56;
+  /* background: #232b56;
   padding: 10px;
   border-radius: 11px;
-  max-width: 480px;
+  max-width: 480px; */
+
+  background: #ff30a1;
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 10px;
+  font-size: 23px;
+}
+
+.countdown p {
+  color: #ffeb3b
+}
+
+.countdown {
+
+  background: #232b56;
+  padding: 26px;
+  border-radius: 11px;
+  width: 480px;
+  font-size: 25px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  height: 0;
+  /* width: 100%; */
+
+
+  /* width: fit-content; */
+  /* margin: auto; */
+  /* font-size: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: #ff30a1;
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  z-index: 1000; */
 }
 
 .hero-wrapper {
@@ -150,12 +190,27 @@ marquee {
   font-family: 'Inconsolata';
   font-size: 30px;
   margin: 23px;
+  user-select: none;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .btn:hover {
   background: var(--orange-light);
   color: #fff;
   box-shadow: 6px 5px 0px #000;
+}
+
+.connect-wallet-btn {
+  height: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
 }
 
 .section {
@@ -175,17 +230,9 @@ marquee {
   margin-bottom: -10px;
 }
 
-.roadmap-items-container {
-  /* display: flex; */
-}
-
 .roadmap-item img {
   width: 130%;
   margin-bottom: -50px;
-  /* background: #fff;
-  padding: 15px;
-  color: #000;
-  box-shadow: -1px -1px 0px 3px var(--black); */
 }
 
 #roadmap-7 {
@@ -205,11 +252,6 @@ marquee {
   margin: 20px;
   text-align: center;
   margin-bottom: -40px;
-  /* background: #000; */
-  /* margin-bottom: 20px;
-  list-style: none;
-  line-height: 21px;
-  font-size: 16px; */
 }
 
 .orange-text {
@@ -244,6 +286,7 @@ marquee {
   box-shadow: -2px 4px 0px #000;
   padding: 9px;
   padding-bottom: 23px;
+  width: 100%;
 
 }
 
@@ -267,6 +310,10 @@ marquee {
 .rarity img {
   width: 100%;
   border-radius: 5px;
+}
+
+.rarity .flex-text {
+  margin-left: 30px;
 }
 
 .hero p {
@@ -308,12 +355,40 @@ marquee {
 
 footer {
   background: var(--black);
-  padding: 30px
+  padding: 30px;
+  margin-bottom: 47px;
 }
 
 .carrot {
   width: 50%;
-  /* margin: auto; */
+}
+
+.mint-page-main {
+  height: 100vh;
+  display: flex;
+  width: 100vw;
+  margin-top: -70px;
+  align-items: center;
+  justify-content: center;
+  background: url(https://gateway.pinata.cloud/ipfs/Qmd9YFMR4446TfEafmgFGenLhWuMydSknG6zTxhWUd2SC8);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.mint-page-main .btn {
+  font-size: 23px;
+}
+
+.mint-bg {
+  background: #0e0e0e;
+  width: fit-content;
+  border-radius: 20px;
+
+  height: 144px;
+  padding-top: 120px;
+  max-width: 422px;
+  text-align: center;
 }
 
 details {
@@ -335,28 +410,15 @@ summary {
   font-size: 25px;
   cursor: pointer;
   font-weight: bold;
-  ;
 }
 
-/* details>summary {
-  list-style-type: '+';
+details:hover {
+  opacity: .9;
 }
-
-details[open]>summary {
-  list-style-type: '-';
-}
-
-details>summary::-webkit-details-marker {
-  display: none;
-} */
 
 details>summary {
   list-style-type: none;
   outline: none;
-  /* cursor: pointer; */
-  /* border: 1px solid #eee;
-  padding: 5px;
-  border-radius: 5px; */
 }
 
 details>summary::-webkit-details-marker {
@@ -365,7 +427,6 @@ details>summary::-webkit-details-marker {
 
 details>summary::before {
   content: '+ ';
-
   position: absolute;
   right: 20px;
   top: 18px;
@@ -385,24 +446,46 @@ details[open]>summary {
   margin-bottom: 0.5rem;
 }
 
-
-
-/* details {
-  border: 1px solid gray;
-  border-radius: 0.2rem;
-  padding: 0.5rem;
-} */
-
-/* details[open]>summary {
-  margin-bottom: 0.5rem;
-} */
-
 @media screen and (max-width:768px) {
+
+  .countdown {
+    font-size: inherit;
+    width: fit-content;
+    margin: auto;
+
+    /* font-size: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 4px;
+    padding-top: 17px;
+    padding-bottom: 0; */
+  }
+
+  .countdown p {
+    display: none;
+  }
 
   .hero-wrapper,
   .about .width-constraint,
   .rarity .width-constraint {
     flex-direction: column;
+  }
+
+  .mint-bg {
+    width: 88%
+  }
+
+  .mint-page-main .btn {
+    font-size: 16px;
+    white-space: nowrap;
+    height: 4px;
+    width: 84%;
+  }
+
+  .rarity .flex-text {
+    margin-left: 0;
   }
 
   p {
@@ -424,6 +507,10 @@ details[open]>summary {
     width: 90%;
   }
 
+  /* details:hover {
+    background: #000;
+  } */
+
   summary {
     font-size: inherit;
   }
@@ -441,10 +528,9 @@ details[open]>summary {
     width: 100%
   }
 
-
-
   .rarity-item {
-    margin: 11px 25px
+    margin: 11px 25px;
+    width: 86%;
   }
 
   .roadmap-items-container {
@@ -489,9 +575,62 @@ details[open]>summary {
     text-align: center;
   }
 
+  .connect-wallet-btn {
+    font-size: 18px;
+    height: 0px;
+    width: 128px
+  }
 }
 
-/* .width-constraint {
+main {
+  height: 100vh;
+  width: 100vw;
+  padding-top: 70px;
+}
+
+.mint-num-btns {
+  background: #fff;
+  border: 2px solid #000;
+  color: #000;
+  font-size: 34px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 5px;
+}
+
+.mint-num-btns:hover {
+  background: #ffffff80;
+}
+
+.mint-num {
+  margin: 30px;
+  font-size: 3rem;
+  display: block;
+}
+
+.flex-column-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.mint-btn {
+  background: #7456a8;
+  width: auto;
+  color: #fff;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exit-min-btn {
   background: red;
-  max-width: 13200px;
-} */
+  color: #fff;
+}
