@@ -86,9 +86,13 @@ const MintPage = () => {
         try {
 
             let newPrice = Number(mintQuantity) * Number(preMintPrice)
+            let newPriceEth = ethers.utils.parseEther(newPrice.toString())
+
+            console.log(newPrice)
+            console.log(newPriceEth)
 
             const result = await contract.mint(mintQuantity, {
-                value: ethers.utils.parseEther(newPrice.toString()),
+                value: newPriceEth,
                 gasLimit: GAS_LIMIT,
             });
 
